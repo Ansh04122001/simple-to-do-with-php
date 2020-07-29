@@ -1,3 +1,7 @@
+<?php
+include "backend/classes/db.php";
+include "backend/includes/main.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,6 +53,7 @@
         </ul>
      </div> -->
      
+     
      <div class="dropdown open">
        <a class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
            aria-expanded="false">
@@ -65,19 +70,31 @@
 
     </nav>
 
+    <div class="container">
+      <?php foreach ($todo as $todoItem) { ?>
+        <!-- # code... -->
+        <div class="row">
+        <label>
+          <input type="checkbox"> <?=$todoItem['body'] ?>
+        </label>
+      </div>
+        <?php } ?>
+      
+    </div>
+
     <div class="mt-5 ml-4 mr-4">
-      <form method="POST">
+      <form method="POST" action="">
         <div class="input-group">
           <input
-            type="search"
+            type="text"
             class="form-control"
-            name="city"
+            name="list"
             placeholder="Enter To do list"
             required
           />
           <div class="input-group-append">
-            <button class="btn btn-outline-success" type="submit">
-              <i class="fa fa-search"></i>
+            <button class="btn btn-outline-success" name="submit" type="submit"> add
+              <!-- <i class="fa fa-search"></i> -->
             </button>
           </div>
         </div>
